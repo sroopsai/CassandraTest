@@ -44,7 +44,7 @@ public class HashMapSeparateChaining<Key, Value>
 		System.out.println("hash(" + key + ")=" + hash);
 		return hash;
 	}
-
+	@SuppressWarnings("unchecked")
 	public Value get(Key key)
 	{
 		int i = hash(key);
@@ -52,7 +52,7 @@ public class HashMapSeparateChaining<Key, Value>
 		{
 			if (key.equals(x.key)) 
 			{
-				return (Value) x.val;
+				return (Value)x.val;
 			}
 		}
 		return null;
@@ -75,12 +75,9 @@ public class HashMapSeparateChaining<Key, Value>
 	public static void main(String[] args)
 	{
 		HashMapSeparateChaining<String, Double> ht = new HashMapSeparateChaining<String, Double>();
-		ht.put("roopsai", 5.6);
-		ht.put("sai", 6.7);
-		String getValue = ht.get("sai").toString();
-		System.out.println(getValue);
-}
-
-		
+		/**
+		 * try except block unit tests
+		 */
+	}	
 }
 		
