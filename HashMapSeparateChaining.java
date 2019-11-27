@@ -1,6 +1,6 @@
 public class HashMapSeparateChaining<Key, Value>
 {
-
+	private static final int INIT_CAPACITY = 888;
 	private int n;
 	private int m;
 	private Node[] ht;
@@ -8,11 +8,11 @@ public class HashMapSeparateChaining<Key, Value>
 	// helper linked list data type
 	private static class Node
 	{
-		private String key;
-		private double val;
+		private Object key;
+		private Object val;
 		private Node next;
 		
-		public Node(String key, double val, Node next)
+		public Node(Object key, Object val, Node next)
 		{
 			this.key = key;
 			this.val = val;
@@ -29,7 +29,7 @@ public class HashMapSeparateChaining<Key, Value>
 	public HashMapSeparateChaining(int m)
 	{
 		this.m = m;
-		ht = new node[m];
+		ht = new Node[m];
 	}
 
 	// generate hash value
@@ -60,11 +60,6 @@ public class HashMapSeparateChaining<Key, Value>
 
 	public void put(Key key, Value val)
 	{
-		if (val==null)
-		{
-			delete(key);
-			return;
-		}
 		int i = hash(key);
 		for (Node x = ht[i]; x != null; x = x.next)
 		{
@@ -79,7 +74,7 @@ public class HashMapSeparateChaining<Key, Value>
 	}
 	public static void main(String[] args)
 	{
-		HashMapSeparateChaining<String, Double> ht = new HashMapSeparateChaining<>();
+		HashMapSeparateChaining<String, Double> ht = new HashMapSeparateChaining<String, Double>();
 		ht.put("roopsai", 5.6);
 		ht.put("sai", 6.7);
 		String getValue = ht.get("sai").toString();
