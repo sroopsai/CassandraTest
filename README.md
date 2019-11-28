@@ -21,3 +21,12 @@ The better idea is to choose M sufficienty large so that the lists are sufficien
 The search can be done in two-step process:
 1. Hash(key) to find the bucket index 
 2. Linear search through the list for the key.  
+
+**API**
+
+	public class HashMapSeparateChaining<Key, Value>
+			HashMapSeparateChaining()     // create a hash table with capacity = 888
+		void put(Key key, Value val)    // insert key-value pair
+		Value get(Key key)             //  fetch the value associated with key
+
+ 
