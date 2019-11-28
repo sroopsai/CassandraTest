@@ -43,4 +43,6 @@ The better idea is to choose M sufficienty large so that the lists are sufficien
 1. Clone the repo.
 2. Compile the program using `javac HashMapSeparateChaining.java`.
 
+**Tests performed**
 
+![picture](screenshot_1.png)
