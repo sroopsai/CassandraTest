@@ -46,3 +46,8 @@ The better idea is to choose M sufficienty large so that the lists are sufficien
 **Tests performed**
 
 ![picture](screenshot_1.png)
+
+From the tests performed:
+
+`hash(Raja) = 382`, `hash(Aajr) = 382`, `hash(Jaar) = 382` which may lead to collision. But the strategy applied in the program avoids the collisions with the help of Linked Lists.
+
