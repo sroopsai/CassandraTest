@@ -41,7 +41,9 @@ The better idea is to choose M sufficienty large so that the lists are sufficien
 
 **How to run the code**
 1. Clone the repo.
-2. Compile the program using `javac HashMapSeparateChaining.java`.
+2. Compile the program using command `javac -d . HashMapSeparateChaining.java`.
+3. Compile the test program using command `javac -d . Tester.java`.
+4. Execute the test program using command `java cassandratest.Tester`.
 
 **Tests performed**
 
