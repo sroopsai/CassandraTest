@@ -43,7 +43,7 @@ public class HashMapSeparateChaining<Key, Value>
 			hash = hash + (int) key.toString().charAt(i);
 		}
 		hash %= INIT_BUCKETS_SIZE;
-		System.out.println("hash(" + key + ") = " + hash);
+//		System.out.println("hash(" + key + ") = " + hash);
 		return hash;		
 	}
 
