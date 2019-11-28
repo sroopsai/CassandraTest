@@ -28,6 +28,10 @@ The better idea is to choose M sufficienty large so that the lists are sufficien
 2. Linear search through the list for the key.
 3. If the key is in the linked list, replace the old value associated with key with new one; otherwisw create a new node with the new <key-value> pair and insert it at the beginning of the linked list.
 
+![picture](hash-table.png)
+
+*Depiction of how __hashmap__ works*
+
 **API**
 
 	public class HashMapSeparateChaining<Key, Value>
