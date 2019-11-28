@@ -30,6 +30,8 @@ The better idea is to choose M sufficienty large so that the lists are sufficien
 
 ![picture](hash-table.png)
 
+*Depiction of how __hashmap__ works*
+
 **API**
 
 	public class HashMapSeparateChaining<Key, Value>
