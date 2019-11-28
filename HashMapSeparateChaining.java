@@ -1,3 +1,5 @@
+package cassandratest;
+
 public class HashMapSeparateChaining<Key, Value>
 {
 	private static final int INIT_BUCKETS_SIZE = 888;
@@ -41,7 +43,7 @@ public class HashMapSeparateChaining<Key, Value>
 			hash = hash + (int) key.toString().charAt(i);
 		}
 		hash %= INIT_BUCKETS_SIZE;
-		System.out.println("hash(" + key + ")=" + hash);
+		System.out.println("hash(" + key + ") = " + hash);
 		return hash;		
 	}
 
@@ -49,6 +51,7 @@ public class HashMapSeparateChaining<Key, Value>
 	public Value get(Key key)
 	{
 		int h = hash(key);
+//		System.out.println("hash(" + key + ") = " + h);
 		for (Node x = ht[h]; x != null; x = x.next)
 		{
 			if (key.equals(x.key)) 
@@ -62,6 +65,7 @@ public class HashMapSeparateChaining<Key, Value>
 	public void put(Key key, Value val)
 	{
 		int h = hash(key);
+//		System.out.println("hash(" + key + ") = " + h);
 		for (Node x = ht[h]; x != null; x = x.next)
 		{
 			if (key.equals(x.key))
@@ -72,21 +76,6 @@ public class HashMapSeparateChaining<Key, Value>
 		}
 		capacity++;
 		ht[h] = new Node(key, val, ht[h]);
-	}
-	public static void main(String[] args)
-	{
-		HashMapSeparateChaining<String, Double> ht = new HashMapSeparateChaining<String, Double>();
-		/**
-		 * try except block unit tests
-		 */
-		ht.put("Hyderabad", 35.8);
-		ht.put("Rajahmundry", 32.8);
-		ht.put("Kakinada", 30.0);
-		ht.put("Bombay", 33.33);
-		ht.put("Karlskrona", 10.0);
-		ht.put("Chennai", 31.789);
-		System.out.println(ht.get("Chennai").toString());
-
 	}	
 }
 		
