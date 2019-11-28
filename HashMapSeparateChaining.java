@@ -1,8 +1,8 @@
 public class HashMapSeparateChaining<Key, Value>
 {
-	private static final int INIT_CAPACITY = 888;
-	private int n;
-	private int m;
+	private static final int INIT_BUCKETS_SIZE = 888;
+	private int capacity;
+	private int chains; // no. of buckets
 	private Node[] ht;
 	
 	// helper linked list data type
@@ -23,13 +23,13 @@ public class HashMapSeparateChaining<Key, Value>
 	// initiaiate separate chaining hash map
 	public HashMapSeparateChaining()
 	{
-		this(INIT_CAPACITY);
+		this(INIT_BUCKETS_SIZE);
 	}
 
-	public HashMapSeparateChaining(int m)
+	public HashMapSeparateChaining(int chains)
 	{
-		this.m = m;
-		ht = new Node[m];
+		this.chains = chains;
+		ht = new Node[chains];
 	}
 
 	// generate hash value
@@ -40,19 +40,20 @@ public class HashMapSeparateChaining<Key, Value>
 		{
 			hash = hash + (int) key.toString().charAt(i);
 		}
-
+		hash %= INIT_BUCKETS_SIZE;
 		System.out.println("hash(" + key + ")=" + hash);
-		return hash;
+		return hash;		
 	}
+
 	@SuppressWarnings("unchecked")
 	public Value get(Key key)
 	{
-		int i = hash(key);
-		for (Node x = ht[i]; x != null; x = x.next)
+		int h = hash(key);
+		for (Node x = ht[h]; x != null; x = x.next)
 		{
 			if (key.equals(x.key)) 
 			{
-				return (Value)x.val;
+				return (Value) x.val;
 			}
 		}
 		return null;
@@ -60,8 +61,8 @@ public class HashMapSeparateChaining<Key, Value>
 
 	public void put(Key key, Value val)
 	{
-		int i = hash(key);
-		for (Node x = ht[i]; x != null; x = x.next)
+		int h = hash(key);
+		for (Node x = ht[h]; x != null; x = x.next)
 		{
 			if (key.equals(x.key))
 			{
@@ -69,8 +70,8 @@ public class HashMapSeparateChaining<Key, Value>
 				return;
 			}
 		}
-		n++;
-		ht[i] = new Node(key, val, ht[i]);
+		capacity++;
+		ht[h] = new Node(key, val, ht[h]);
 	}
 	public static void main(String[] args)
 	{
@@ -78,6 +79,14 @@ public class HashMapSeparateChaining<Key, Value>
 		/**
 		 * try except block unit tests
 		 */
+		ht.put("Hyderabad", 35.8);
+		ht.put("Rajahmundry", 32.8);
+		ht.put("Kakinada", 30.0);
+		ht.put("Bombay", 33.33);
+		ht.put("Karlskrona", 10.0);
+		ht.put("Chennai", 31.789);
+		System.out.println(ht.get("Chennai").toString());
+
 	}	
 }
 		
