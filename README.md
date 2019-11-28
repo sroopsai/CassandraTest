@@ -35,4 +35,8 @@ The better idea is to choose M sufficienty large so that the lists are sufficien
 		void put(Key key, Value val)    // insert key-value pair
 		Value get(Key key)             //  fetch the value associated with key
 
- 
+**How to run the code**
+1. Clone the repo.
+2. Compile the program using `javac HashMapSeparateChaining.java`.
+
+
