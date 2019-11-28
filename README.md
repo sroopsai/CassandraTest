@@ -14,7 +14,7 @@ The hash function used in this program is modular hashing.
 	hash %= M;
 
 **Avoid Collisions:**
-To avoid bucket collisions build an array of size M(bucket size) where for each of the *mth* index of array build an linked list of the key-value pairs whose keys hash to that index (bucket index). 
+To avoid bucket collisions build an array of size M(number of buckets) where for each of the *mth* index of array build an linked list of the key-value pairs whose keys hash to that index (bucket index). 
 
 The better idea is to choose M sufficienty large so that the lists are sufficienty short.
 
