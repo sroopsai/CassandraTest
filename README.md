@@ -8,10 +8,12 @@ The algorithm for hash table involves two steps:
 
 The hash function used in this program is modular hashing.
 
-	int hash = 0;
-	for (int i = 0; i < s.toString().length(); i++)
-		hash = hash + s.toString().length()
-	hash %= M;
+```java
+int hash = 0;
+for (int i = 0; i < s.toString().length(); i++)
+	hash = hash + s.toString().length()
+hash %= M;
+```
 
 **Avoid Collisions:**
 To avoid bucket collisions build an array of size M(number of buckets) where for each of the *mth* index of array build an linked list of the key-value pairs whose keys hash to that index (bucket index). 
@@ -34,10 +36,12 @@ The better idea is to choose M sufficienty large so that the lists are sufficien
 
 **API**
 
+```java
 	public class HashMapSeparateChaining<Key, Value>
 		HashMapSeparateChaining()     // create a hash table with capacity = 888
 		void put(Key key, Value val)    // insert key-value pair
 		Value get(Key key)             //  fetch the value associated with key
+```
 
 **How to run the code**
 1. Clone the repo.
